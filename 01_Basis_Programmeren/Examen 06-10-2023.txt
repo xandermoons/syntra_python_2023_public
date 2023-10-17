@@ -1,0 +1,15 @@
+1: theorie --> 50%
+	-> Meerkeuze
+	-> 5 vragen ; minimum 2 logica vragen
+		-> venn diagram kunnen matchen met bewering (of andersom)
+		-> eenvoudig commando's github kennen (clone, push, pull...)
+		-> powerpoints theorie
+
+2: opdracht logica --> 20%
+	-> +- 30 min (over de les dinsdag 3 okt in combinatie met programmeren)
+		-> gates
+
+3: opdracht programmeren --> 30%
+	-> +- 1 uur en resultaat en via mail doorsturen
+	-> kan ook 'pseudocode' zijn
+	-> 'random' kunnen gebruiken

@@ -1,0 +1,9 @@
+Een algoritme is een plan, een logisch stapgewijs proces om een probleem op te lossen. 
+Algoritmes worden normaal gesproken geshreven als een stroomdiagram of in pseudocode.
+
+--> flowcharts kunnen maken (basically UML van den aldi)
+
+Functie: wordt enkel uitgevoegd wanneer deze wordt aangeroepen
+    -> argumenten: waarden die me de functie worden meegegeven om het resultaat te berekenen>
+    -> functie = callable
+    

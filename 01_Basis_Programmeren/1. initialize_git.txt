@@ -1,0 +1,16 @@
+1. git init
+	# maakt van een directory een lokaal git-project
+2. git add . 
+	# '.' staat voor alles, anders namen van files 
+3. git branch -m main 
+	# main ipv master (master niet meer gebruikelijk)
+4. git commit -m "<message>" 
+5. git remote -v 
+	# om te checken of de map al gekoppeld is met online repository
+6. git remote add origin <link van online repository> 
+	# origin is naar van remote repository (standaard origin maar eender welke naam is mogelijk)
+	# lokale map wordt gekoppeld met online repository
+7. git pull origin main --rebase 
+	#haalt online files van repository naar lokale map
+8. git push -u origin main 
+	# -u = upstream van origin naar main
