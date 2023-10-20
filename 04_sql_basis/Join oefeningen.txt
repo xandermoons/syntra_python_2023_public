@@ -1,0 +1,27 @@
+SELECT spelernr, naam, datum, bedrag
+FROM "Spelers" INNER JOIN "Boetes" USING(spelernr)
+WHERE bedrag > 45.5 
+AND plaats = 'Rijswijk'
+
+
+SELECT s.spelernr, naam, voorletters, divisie, wedstrijdnr
+FROM "Spelers" s INNER JOIN "Teams" t USING(spelernr)
+LEFT JOIN "Wedstrijden" w ON w.spelernr = t.spelernr
+WHERE geslacht = 'M'
+ORDER BY 5 DESC
+
+SELECT wedstrijdnr, naam, voorletters
+FROM "Spelers" s INNER JOIN "Teams" t USING(spelernr)
+INNER JOIN "Wedstrijden" w USING(teamnr)
+ORDER BY 1
+
+SELECT spelernr, bondnr
+FROM "Spelers"
+WHERE geb_datum > (SELECT geb_datum FROM "Spelers" WHERE bondnr = '8467')
+
+SELECT naam, begin_datum || ' tot ' || eind_datum 
+FROM "Spelers" INNER JOIN "Bestuursleden"
+USING(spelernr)
+WHERE eind_datum IS NOT null
+AND functie = 'Voorzitter'
+ORDER BY begin_datum DESC

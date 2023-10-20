@@ -1,0 +1,5 @@
+A car rental company rents cars to customers. 
+For customers, name and address is retained, 
+for cars, brand and model is retained 
+The system must allow to give an overview of which cars are currently with which customer. 
+And when the cars will be available for the next rental

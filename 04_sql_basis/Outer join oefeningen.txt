@@ -1,0 +1,54 @@
+SELECT spelernr, jaartoe, bondnr , teamnr
+FROM "Spelers" LEFT OUTER JOIN "Teams"
+USING(spelernr)
+ORDER BY 1 DESC
+
+SELECT spelernr, naam, functie, wedstrijdnr, gewonnen - verloren as verschil
+FROM "Spelers" INNER JOIN "Bestuursleden" USING(spelernr)
+LEFT OUTER JOIN "Wedstrijden" USING(spelernr)
+ORDER BY 3, 5 DESC, 1, 4
+
+SELECT spelernr, plaats , teamnr
+FROM "Spelers" LEFT OUTER JOIN "Wedstrijden" USING(spelernr)
+WHERE plaats SIMILAR TO 'Zoetermeer|Leiden|Den Haag'
+AND geslacht = 'V'
+ORDER BY 1
+
+SELECT naam, geslacht, functie
+FROM "Spelers" LEFT OUTER JOIN "Bestuursleden"
+USING(spelernr)
+WHERE geslacht = 'M'
+AND naam LIKE '%e%e%'
+AND (eind_datum IS null)
+ORDER BY spelernr
+
+SELECT naam
+FROM "Spelers" LEFT OUTER JOIN "Wedstrijden" w
+USING(spelernr)
+WHERE w.spelernr IS null
+ORDER BY 1
+
+SELECT spelernr
+FROM "Spelers" LEFT OUTER JOIN "Boetes" bo USING(spelernr)
+LEFT OUTER JOIN "Bestuursleden" be USING(spelernr)
+WHERE be.spelernr IS null
+AND bo.spelernr IS null
+ORDER BY 1 DESC
+
+SELECT spelernr, naam, plaats
+FROM "Spelers" LEFT OUTER JOIN "Boetes" bo
+USING(spelernr)
+WHERE bo.spelernr IS null
+AND plaats <> 'Den Haag'
+ORDER BY jaartoe
+
+SELECT t.teamnr, t.divisie, w.wedstrijdnr, w.spelernr,
+CASE 
+	WHEN b.eind_datum IS null AND b.begin_datum IS NOT null THEN 'actief'
+	ELSE '-'
+END
+FROM "Teams" t LEFT OUTER JOIN "Wedstrijden" w USING(teamnr)
+	LEFT OUTER JOIN "Bestuursleden" b ON w.spelernr = b.spelernr
+WHERE verloren > gewonnen
+AND b.eind_datum IS null
+ORDER BY 2,3
